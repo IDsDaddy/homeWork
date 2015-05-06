@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<title>E63 Wagon Slideshow</title>
+
+    <style>
+
+        #images {
+            position:relative;
+        }
+        
+        #images >div {
+            position: absolute;
+        }
+        #canvas {
+            width: 400px;
+            height: 300px;
+            position: relative;
+        }
+        #showBox {
+            border: 1px solid;
+            height: 300px;
+            width: 400px;
+            position: relative;
+            overflow: hidden;
+            left:150px;
+            top:150px;
+            display: block;
+            float: left;
+        }
+        #slideShow {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #slideShow img {
+            float: left;
+        }
+
+        
+    </style>
+    
+    <script>
+        
+        $(function () {
+            $('#images > div:gt(0)').hide();
+            
+            setInterval (function () {
+                    $('#images > div:first')
+                            .fadeOut(1000)
+                            .next()
+                            .fadeIn(1000)
+                            .end()
+                            .appendTo('#images');
+                },3000);
+                
+            });
+        
+        
+    </script>
+
+</head>
+
+<body>
+    
+
+    
+    <div id="images">
+         <div>
+            <img src="http://www.w3schools.com/jsref/compman.gif" />
+        </div>
+         <div>
+            <img src="http://www.w3schools.com/images/colorpicker.gif" />
+        </div>
+    </div>
+    
+    <div id="canvas">    
+        <div id="showBox">
+            <div id="slideShow">
+
+                <img src="jsImages/e63_1.jpg" alt="image 1" width="25%" height="100%"></img>
+                <img src="jsImages/e63_2.jpg" alt="image 2" width="50%" height="100%"></img>
+                <img src="jsImages/e63_3.jpg" alt="image 3" width="100%" height="100%"></img>
+                <img src="jsImages/e63_4.jpg" alt="image 4" width="100%" height="100%"></img>
+
+
+            </div>
+
+            <div id="directionButton">
+
+                <img src="jsImages/red_left.png" alt="slide left"></img>
+                <img src="jsImages/red_right.png" alt="slide right"></img>
+
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

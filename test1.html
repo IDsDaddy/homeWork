@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="js/jquery-1.11.2.min.js"></script>
+<!--
+
+<script src="js/idsdaddy.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="css/idstyle.css" />
+-->
+    
+<title>IDsDaddy Home Page</title>
+    
+
+<script type="text/javascript">
+    
+    function enter(){
+//        checkSize().done(function(){
+//            $("#showMe3").append(" waited to act");
+//            console.log("waited to act");
+//        });
+        if($("#showMe3").width()!="200"){
+            checkSize().done(function(){
+            console.log("waited to act");
+            $("#showMe3").stop().animate({width:'200px'},2000, "linear");
+        });
+        };
+        
+        
+    };
+    
+    function leave(){
+//        var deferred = $.Deferred();
+        
+        setTimeout(function(){
+            $("#showMe").append(" animated");
+//            deferred.resolve();
+        },3000);    
+        
+//        return deferred.promise();
+    };
+    
+    function enlarge() {
+        $("#showMe3").stop().animate({width:'500px'},2000, "linear");
+//        console.log($("#showMe3").height());
+    };
+    
+    function checkSize() {
+        var deferred = $.Deferred();
+        
+        var checkInterval = setInterval(function(){
+            if($("#showMe3").width()=="500"){
+                clearInterval(checkInterval);
+                deferred.resolve();
+//                console.log($("#showMe3").width());
+            };
+           console.log($("#showMe3").width()); 
+            
+        },100);
+        
+        return deferred.promise();
+    };
+    
+    
+</script>
+    
+</head>
+
+<body>
+    
+    <div id="showMe">0</div>
+    <div id="showMe2">0</div>
+    <div id="showMe3" style="height:100px; width:200px; border:1px solid black" onmouseenter="enter()"></div>
+    
+    <div id="buttons">
+    
+        <button id="button1" onclick="enter()">Button 1</button>
+        <button id="button2" onclick="leave()">Button 2</button>
+        <button id="button3" onclick="enlarge()">Button 3</button>
+        
+    </div>
+    
+</body>
+    
+</html>
